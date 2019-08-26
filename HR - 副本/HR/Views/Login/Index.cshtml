@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html public "-//w3c//dtd html 4.01 transitional//en"
+          "http://www.w3.org/tr/html4/loose.dtd">
+@model Model.LoginModel
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type=text/css>
+        body {
+            font-size: 12px;
+            color: #ffffff;
+            font-family: 宋体;
+        }
+
+        td {
+            font-size: 12px;
+            color: #ffffff;
+            font-family: 宋体;
+        }
+    </style>
+    <script type="text/javascript"
+            src="../javascript/jquery-1.7.2.js">
+    </script>
+    <script type="text/javascript"
+            src="../javascript/jquery.messager.js">
+    </script>
+    <script type="text/javascript"
+            src="../javascript/login.js">
+    </script>
+</head>
+<body>
+    <form action="" method="post">
+        <div>
+            <table cellspacing=0 cellpadding=0 width=900 align=center border=0>
+                <tbody>
+                    <tr>
+                        <td style="height: 105px">
+                            <img src="../images/login_11.gif" border=0>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td background=../images/login_22.jpg height=300>
+                            <table height=300 cellpadding=0 width=900 border=0>
+                                <tbody>
+                                    <tr>
+                                        <td colspan=2 height=35></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=360></td>
+                                        <td>
+                                            <table cellspacing=0 cellpadding=2 border=0>
+                                                @using (Ajax.BeginForm("Create", new AjaxOptions() { HttpMethod = "Post" }))
+                                                {
+
+                                                    <div class="form-horizontal">
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(model => model.PassWorld, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="col-md-10">
+                                                                @Html.TextBoxFor(model => model.PassWorld, new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.PassWorld, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-md-offset-2 col-md-10">
+                                                                <input type="submit" value="登录" class="btn btn-default" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="../images/login_33.jpg" border=0>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-trasitional.dtd">
+@model Model.config_file_first_kindModel
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet"
+          href="../../css/table.css" type="text/css">
+    <script type="text/javascript"
+            src="../../javascript/comm/comm.js">
+    </script>
+</head>
+<body>
+        @using (Ajax.BeginForm("Edit", new AjaxOptions() { HttpMethod = "Post" }))
+        {
+
+            <div class="form-horizontal">
+                <h4>Edit</h4>
+                <hr />
+                <div class="TD_STYLE1"  style="display:none">
+                    编号
+                    <div class="TD_STYLE1">
+                        @Html.TextBoxFor(model => model.ffk_id, new { @class = "form-control", @readonly = true })
+                        @Html.ValidationMessageFor(model => model.ffk_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="TD_STYLE1">
+                    I级机构编号
+                    <div class="TD_STYLE1">
+                        @Html.TextBoxFor(model => model.first_kind_id, new { @class = "form-control", })
+                        @Html.ValidationMessageFor(model => model.first_kind_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="TD_STYLE1">
+                    I级机构名称
+                    <div class="TD_STYLE1">
+                        @Html.TextBoxFor(model => model.first_kind_name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.first_kind_name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="TD_STYLE1">
+                    薪酬发放责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
+                    <div class="TD_STYLE1">
+                        @Html.TextBoxFor(model => model.first_kind_salary_id, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.first_kind_salary_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="TD_STYLE1">
+                    销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
+                    <div class="TD_STYLE1">
+                        @Html.TextBoxFor(model => model.first_kind_sale_id, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.first_kind_sale_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+</body>
+</html>
